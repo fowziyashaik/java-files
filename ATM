@@ -1,0 +1,101 @@
+package numberguessing;
+
+
+import java.util.*;
+public class ATM
+{
+int bal=0;
+int pin;
+public void pinnumber()
+{
+Scanner sc=new Scanner(System.in);
+System.out.println("enter pin:");
+pin=sc.nextInt();
+int count=0;
+while(pin!=0)
+{
+pin/=10;
+count++;
+}
+if(count==4)
+{
+System.out.println("select menu");
+}
+else
+{
+System.out.println("invalid pin");
+pinnumber();
+}
+menu();
+}
+public void menu()
+{
+System.out.println(" 1 Balance");
+System.out.println(" 2 Withdraw");
+System.out.println(" 3 Deposit");
+System.out.println(" 4 exit");
+Scanner sc=new Scanner(System.in);
+int input=sc.nextInt();
+if(input==1)
+{
+Balance();
+}
+else if(input==2)
+{
+Withdraw();
+}
+else if(input==3)
+{
+Deposit();
+}
+else if(input==4)
+{
+
+exit();
+
+}
+}
+public void Balance()
+{
+System.out.println(" balance:"+bal);
+menu();
+}
+public void Withdraw()
+{
+int amt;
+Scanner sc=new Scanner(System.in);
+System.out.println("enter amount:");
+amt=sc.nextInt();
+System.out.println("amount is successfully withdraw......");
+bal=bal-amt;
+menu();
+}
+public void Deposit()
+{
+int amt;
+Scanner sc=new Scanner(System.in);
+System.out.println("enter amount:");
+amt=sc.nextInt();
+System.out.println("amount is successfully deposit......");
+bal=bal+amt;
+menu();
+}
+public void exit()
+{
+System.out.println("exist succesfully........");
+
+}
+public static void main(String args[])
+{
+ATM obj=new ATM();
+obj.pinnumber();
+}
+} 
+
+
+
+
+
+
+
+
